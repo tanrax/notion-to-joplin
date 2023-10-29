@@ -1,4 +1,6 @@
-# This script is used to convert a Notion export to a Joplin import (MD - Markdown directory).
+# Import Notion to Joplin
+
+Simple script to convert a Notion export to a Joplin import (MD - Markdown directory).
 
 ## Requirements
 
