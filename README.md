@@ -8,7 +8,7 @@ Simple script to convert a Notion export to a Joplin import (MD - Markdown direc
 
 ## Usage
 
-1. Export your Notion workspace as Markdown & CSV (with subpages) and unzip the archive.
+1. Export your Notion workspace as Markdown & CSV (with subpages).
 
 2. Download script.
 
@@ -31,3 +31,5 @@ python3 notion-to-joplin.py -f b25c8352-f87b-4b5b-ce0a-61d09c5bd81b_Export-9e0c6
 4. Import the generated folder into Joplin.
 
 You can now import the folder `import to joplin` to Joplin (File > Import > MD - Markdown directory).
+
+Done!
