@@ -52,7 +52,7 @@ for filename in glob.iglob(path_to_files, recursive=True):
     with open(filename, "r") as file:
         # Get the heading
         first_line = file.readline()
-        heading = first_line.replace("# ", "").replace("\n", "")
+        heading = first_line.replace("# ", "").replace("\n", "").replace("/", "-")
         # Delete two first lines
         lines = file.readlines()
         lines_without_heading = lines[1:]
