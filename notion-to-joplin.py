@@ -49,7 +49,7 @@ print("Renaming files and fixing links...")
 path_to_files = path.join(FOLDER_EXTRACTION, "**/*." + MARKDOWN_EXTENSION)
 for filename in glob.iglob(path_to_files, recursive=True):
     # Get the heading of the file
-    with open(filename, "r") as file:
+    with open(filename, "r", encoding="utf-8") as file:
         # Get the heading
         first_line = file.readline()
         heading = first_line.replace("# ", "").replace("\n", "").replace("/", "-")
@@ -57,7 +57,7 @@ for filename in glob.iglob(path_to_files, recursive=True):
         lines = file.readlines()
         lines_without_heading = lines[1:]
     # Write the file without the heading
-    with open(filename, "w") as file:
+    with open(filename, "w", encoding="utf-8") as file:
         file.write("".join(lines_without_heading))
     # Rename the file
     new_filename = path.join(path.dirname(filename), heading + "." + MARKDOWN_EXTENSION)
@@ -66,9 +66,9 @@ for filename in glob.iglob(path_to_files, recursive=True):
     old_filename_encoded = urllib.parse.quote(ntpath.basename(filename))
     heading_encoded = urllib.parse.quote(heading) + "." + MARKDOWN_EXTENSION
     for filename_to_fix in glob.iglob(path_to_files, recursive=True):
-        with open(filename_to_fix, "r") as file:
+        with open(filename_to_fix, "r", encoding="utf-8") as file:
             lines_to_fix = file.readlines()
-        with open(filename_to_fix, "w") as file:
+        with open(filename_to_fix, "w", encoding="utf-8") as file:
             text_to_write = "".join(lines_to_fix).replace(
                 old_filename_encoded, heading_encoded
             )
@@ -87,9 +87,9 @@ for folder in glob.iglob(path_of_folders, recursive=True):
         old_folder_name_encoded = urllib.parse.quote(current_folder_name)
         new_folder_name_encoded = urllib.parse.quote(new_folder_name)
         for filename_to_fix in glob.iglob(path_to_files, recursive=True):
-            with open(filename_to_fix, "r") as file:
+            with open(filename_to_fix, "r", encoding="utf-8") as file:
                 lines_to_fix = file.readlines()
-            with open(filename_to_fix, "w") as file:
+            with open(filename_to_fix, "w", encoding="utf-8") as file:
                 text_to_write = "".join(lines_to_fix).replace(
                     old_folder_name_encoded, new_folder_name_encoded
                 )
